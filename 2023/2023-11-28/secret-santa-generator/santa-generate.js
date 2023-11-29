@@ -1,3 +1,4 @@
+const santas = {};
 const santaGenerator = (people) => {
   // map array of people to an object/hash map starting with empty object
   const peeps = createInitialPeopleHash(people);
@@ -5,17 +6,19 @@ const santaGenerator = (people) => {
   // for - in peeps object
   for (const name in peeps) {
     if (!peeps[name].santa) peeps[name].santa = assignSanta(name, people);
+    santas[peeps[name].santa] = name;
   }
   // math.floor(math.rand(0, people.length - 1)) and use this number to index the array and assign to object key
   // check that current object name does not equal current array index
   // if true set key value
   // if false randomize again
   // return new hashmap of secret santa
+  return santas;
 };
 
 const assignSanta = (name, people) => {
   const randomNumber = getRandomNumber(people.length);
-  if (name === people[randomNumber]) {
+  if (name === people[randomNumber] || santas[name]) {
     return assignSanta(name, people);
   }
   return people[randomNumber];
