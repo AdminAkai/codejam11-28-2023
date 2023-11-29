@@ -7,7 +7,7 @@ const santaGenerator = (people) => {
     // for - in peeps object
   for (const person in peeps) {
     // random index
-  if (person === array[mathRand])
+  if (person !== array[mathRand])
     peeps[person]
   }
 
