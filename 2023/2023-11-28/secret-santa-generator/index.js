@@ -22,4 +22,4 @@ const santaGenerator = (people) => {
   return secretSantas
 }
 
-console.log(santaGenerator(['test', 'test2', 'test3', 'test4']))
+console.log(santaGenerator(['test', 'test2', 'test3', 'test4', 'test5']))
